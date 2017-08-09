@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+# GET /api/jobs
+# GET /api/jobs/:id
+# POST /api/jobs
+# PUT /api/jobs/:id
+# DELETE /api/jobs/:id
 
-* System dependencies
+# Job Model
+# title:string, description:string, url:string, company:string, category_id:integer ( belongs_to category), type_id:integer ( belongs_to type)
 
-* Configuration
+#radio for each category and type
 
-* Database creation
+#Type Mode
+# part-time, full-time, internship
+#name:string
+#see type
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Category Model
+#accounting & finance, data/analytics, design, developer/engineer, hr/recruitment, legal, marketing, opeartions, product, project management, sales, writing & content
+#name:string
+#seed categories
