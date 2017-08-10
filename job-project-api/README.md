@@ -23,3 +23,13 @@
 #accounting & finance, data/analytics, design, developer/engineer, hr/recruitment, legal, marketing, opeartions, product, project management, sales, writing & content
 #name:string
 #seed categories
+
+
+
+
+
+
+
+Deploy To Dos:
+
+cors - add heroku url in initializers
