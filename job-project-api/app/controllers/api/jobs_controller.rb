@@ -1,3 +1,4 @@
+require 'pry'
 class Api::JobsController < ApplicationController
 
   def index
@@ -14,14 +15,25 @@ class Api::JobsController < ApplicationController
   end
 
   def show
+    @job = set_job
     render json: @job
   end
 
   def update
+    @job = set_job
     if @job.update(job_params)
       render json: @job
     else
       render json: { message: @job.errors }, status: 422
+    end
+  end
+
+  def destroy
+    @job = set_job
+    if @job.destroy
+      render json: { message: "Successful Destroy"}, status: 204
+    else
+      render json: { message: "Unable to Destroy" }, status: 422
     end
   end
 
@@ -30,7 +42,7 @@ class Api::JobsController < ApplicationController
   private
 
   def set_job
-    @job = Job.find_by(id: params[:id])
+    Job.find(params[:id])
   end
 
   def job_params
