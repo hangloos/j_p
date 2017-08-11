@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Jobs from '../components/Jobs'
+import NavbarApp from './Navbar';
 
 const jobs = [
   {
@@ -16,7 +17,8 @@ const jobs = [
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container">
+        <NavbarApp />
        <Jobs jobs={jobs} />
       </div>
     );
