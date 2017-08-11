@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Jobs from '../components/Jobs'
+import Jobs from '../components/Jobs';
 import NavbarApp from './Navbar';
+import Layout from './Layout';
 
 const jobs = [
   {
@@ -19,7 +20,8 @@ class App extends Component {
     return (
       <div className="container">
         <NavbarApp />
-       <Jobs jobs={jobs} />
+        <Jobs jobs={jobs} />
+        <Layout />
       </div>
     );
   }

@@ -8,7 +8,6 @@ const Jobs = (props) => (
         <div>
           <h3>{job.title}</h3>
           <h2>{job.description}</h2>
-          <button className="btn">Test</button>
         </div>
         )}
         </div>
