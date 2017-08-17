@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+var createReactClass = require('create-react-class');
 
-var Navbar = React.createClass({
+
+var Navbar = createReactClass({
   render: function(){
     return(
       <nav className="navbar navbar-inverse bg-primary">
@@ -23,7 +25,7 @@ var Navbar = React.createClass({
   }
 });
 
-var NavBrand = React.createClass({
+var NavBrand = createReactClass({
   render: function(){
     return (
       <a className="navbar-brand" href={this.props.linkTo}>{this.props.text}</a>
@@ -31,7 +33,7 @@ var NavBrand = React.createClass({
   }
 });
 
-var NavMenu = React.createClass({
+var NavMenu = createReactClass({
   render: function(){
     var links = this.props.links.map(function(link){
       if(link.dropdown) {
@@ -53,7 +55,7 @@ var NavMenu = React.createClass({
   }
 });
 
-var NavLinkDropdown = React.createClass({
+var NavLinkDropdown = createReactClass({
   render: function(){
     var active = false;
     var links = this.props.links.map(function(link){
@@ -78,7 +80,7 @@ var NavLinkDropdown = React.createClass({
   }
 });
 
-var NavLink = React.createClass({
+var NavLink = createReactClass({
   render: function(){
     return(
       <li className={(this.props.active ? "active" : "")}><a href={this.props.linkTo}>{this.props.text}</a></li>

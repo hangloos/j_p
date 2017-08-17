@@ -2,7 +2,6 @@ require 'pry'
 class Api::JobsController < ApplicationController
 
   def index
-    binding.pry
     render json: Job.all
   end
 

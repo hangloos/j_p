@@ -56,9 +56,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`${API_URL}/jobs`)
-      .then(response => response.json())
-      .then(jobs => this.setState({jobs}))
+    fetch('http://localhost:3000/api/jobs')
+      .then((response) => response.json())
+      .then(function(data) {
+        debugger
+      })
   }
 
 
@@ -67,7 +69,7 @@ class App extends Component {
       <div className="App">
       <Navbar {...navbar} />
       < Layout />
-       <Jobs key={this.state.jobs.id} jobs={this.state.jobs} />
+      
       </div>
     );
   }
