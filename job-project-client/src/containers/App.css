@@ -23,6 +23,7 @@
   to { transform: rotate(360deg); }
 }
 
+<<<<<<< HEAD
 
 /*.well {
     min-height: 20px;
@@ -82,3 +83,8 @@ p
 {
     margin-left:15px;
   }*/
+=======
+div.navbar-inner.nav-collapse {
+  height: auto;
+}
+>>>>>>> 30519c14e509f13d015f20842cbf1fa2db9014bc

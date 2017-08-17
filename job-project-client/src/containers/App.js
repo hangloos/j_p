@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+<<<<<<< HEAD
 import Jobs from '../components/Jobs'
 import Navbar from '../components/Navbar'
 import 'bootstrap/dist/css/bootstrap.css';
+=======
+import Jobs from '../components/Jobs';
+import NavbarApp from './Navbar';
+import Layout from './Layout';
+>>>>>>> 30519c14e509f13d015f20842cbf1fa2db9014bc
 
 const jobs = [
   {
@@ -39,9 +45,16 @@ navbar.links = [
 class App extends Component {
   render() {
     return (
+<<<<<<< HEAD
       <div className="App">
       <Navbar {...navbar} />
        <Jobs key={jobs.title} jobs={jobs} />
+=======
+      <div className="container">
+        <NavbarApp />
+        <Jobs jobs={jobs} />
+        <Layout />
+>>>>>>> 30519c14e509f13d015f20842cbf1fa2db9014bc
       </div>
     );
   }
