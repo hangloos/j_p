@@ -2,6 +2,13 @@ import React from 'react';
 
 
 export default class Layout extends React.Component {
+
+
+  addFilter(item) {
+    debugger
+  }
+
+
   render() {
     return (
     <div>
@@ -9,7 +16,7 @@ export default class Layout extends React.Component {
       {this.props.categories.map(category =>
       <tbody>
         <tr>
-          <td><input type="radio" />{category.name}</td>
+          <td><input type="radio" onClick={this.addFilter.bind(this,category)}/>{category.name}</td>
         </tr>
         </tbody>
           )}

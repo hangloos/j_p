@@ -1,7 +1,7 @@
 class Api::CategoriesController < ApplicationController
 
   def index
-    render json: Category.all
+    render json: Category.all, :include => :jobs 
   end 
 
 

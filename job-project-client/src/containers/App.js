@@ -41,14 +41,19 @@ class App extends Component {
       .then(categories => this.setState({categories}))
     }
 
+
+  filterCategory(category) {
+    debugger
+  }
+
   render() {
     console.log(this.state)
 
     return (
       <div className="App">
       <Navbar {...navbar} />
-      <Jobs jobs={this.state.jobs} />
-      <Layout categories={this.state.categories} />
+      <Jobs filterCategory={this.filterCategory.bind(this)} jobs={this.state.jobs} categories={this.state.categories} />
+      
       </div>
     );
   }
