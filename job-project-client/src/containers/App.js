@@ -4,8 +4,9 @@ import Jobs from '../components/Jobs'
 import Navbar from '../components/Navbar'
 import Layout from './Layout'
 import 'bootstrap/dist/css/bootstrap.css';
+import axios from 'axios';
 
-// const jobs = [
+// var all_jobs = [
 //   {
 //     title: 'Accountant',
 //     description: "hey this is an accountant role and twejlkjfklsjfkljslkjdskljsfkldfjfklsjfkjfkslfjklsfjklfjklfjlfkjfjlkfjjlskfjksjfkdfjslfkjdfksjflkdsjfklsjflkjskdjfdksljfklfjskfjsklfjsklfjslkjskfljflksjfdsjlsfjksfjkldfjsdlkfjkdfsjfkjflksjflkdsjflksjfklsjfksljfklsdfjslfjlkfjsfkdsljfksdjf",
@@ -51,25 +52,28 @@ class App extends Component {
     super(props)
 
     this.state = {
-
+      jobs: []
     }
   }
 
   componentDidMount() {
     fetch('http://localhost:3000/api/jobs')
-      .then((response) => response.json())
-      .then(function(data) {
-        debugger
-      })
-  }
+      .then(res => res.json())
+      .then(jobs => this.setState({jobs}))
 
+    // axios.get('http://localhost:3000/api/jobs').then(res => this.setState({
+    //   all_jobs: res.data
+    // }));
+    }
 
   render() {
+    console.log(this.state)
+
     return (
       <div className="App">
       <Navbar {...navbar} />
-      < Layout />
-      
+      <Jobs jobs={this.state.jobs} />
+      <Layout />
       </div>
     );
   }
@@ -77,12 +81,3 @@ class App extends Component {
 
 export default App;
 
-
-// https://bootsnipp.com/snippets/kEvrW
-
-// <Grid>
-//     <Row className="show-grid">
-//       <Col xs={12} md={8}><code>&lt;{'Col xs={12} md={8}'} /&gt;</code></Col>
-//       <Col xs={6} md={4}><code>&lt;{'Col xs={6} md={4}'} /&gt;</code></Col>
-//     </Row>
-// </Grid>
