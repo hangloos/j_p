@@ -43,7 +43,7 @@ class App extends Component {
 
 
   filterCategory(category) {
-    debugger
+    this.setState({jobs: category.jobs})
   }
 
   render() {
