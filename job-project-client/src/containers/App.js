@@ -6,32 +6,6 @@ import Layout from './Layout'
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 
-// var all_jobs = [
-//   {
-//     title: 'Accountant',
-//     description: "hey this is an accountant role and twejlkjfklsjfkljslkjdskljsfkldfjfklsjfkjfkslfjklsfjklfjklfjlfkjfjlkfjjlskfjksjfkdfjslfkjdfksjflkdsjfklsjflkjskdjfdksljfklfjskfjsklfjsklfjslkjskfljflksjfdsjlsfjksfjkldfjsdlkfjkdfsjfkjflksjflkdsjflksjfklsjfksljfklsdfjslfjlkfjsfkdsljfksdjf",
-//     url: "www.google.com",
-//     company: "Google",
-//     category: "Technology",
-//     type: "Full-time"
-//   },
-//   {
-//     title: 'Developer',
-//     description: "develop in this role",
-//     url: "wwww.yahoo.com",
-//     company: "Yahoo",
-//     category: "Technology",
-//     type: "Full-time"
-//   }, {
-//     title: 'Developer',
-//     description: "develop in this role",
-//     url: "wwww.yahoo.com",
-//     company: "Yahoo",
-//     category: "Technology",
-//     type: "Full-time"
-//   }
-// ]
-
 var navbar = {};
 navbar.brand = 
   {linkTo: "#", text: "Eric Loos Project"};
@@ -60,10 +34,6 @@ class App extends Component {
     fetch('http://localhost:3000/api/jobs')
       .then(res => res.json())
       .then(jobs => this.setState({jobs}))
-
-    // axios.get('http://localhost:3000/api/jobs').then(res => this.setState({
-    //   all_jobs: res.data
-    // }));
     }
 
   render() {
