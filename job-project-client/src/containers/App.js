@@ -26,7 +26,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      jobs: []
+      jobs: [],
+      categories: []
     }
   }
 
@@ -34,6 +35,10 @@ class App extends Component {
     fetch('http://localhost:3000/api/jobs')
       .then(res => res.json())
       .then(jobs => this.setState({jobs}))
+
+    fetch('http://localhost:3000/api/categories')
+      .then(res => res.json())
+      .then(categories => this.setState({categories}))
     }
 
   render() {
@@ -43,7 +48,7 @@ class App extends Component {
       <div className="App">
       <Navbar {...navbar} />
       <Jobs jobs={this.state.jobs} />
-      <Layout />
+      <Layout categories={this.state.categories} />
       </div>
     );
   }
