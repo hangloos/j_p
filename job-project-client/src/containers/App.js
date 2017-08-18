@@ -27,7 +27,8 @@ class App extends Component {
 
     this.state = {
       jobs: [],
-      categories: []
+      categories: [],
+      selectedCategories: []
     }
   }
 
@@ -43,7 +44,21 @@ class App extends Component {
 
 
   filterCategory(category) {
-    this.setState({jobs: category.jobs})
+    var selectedCategories = this.state.selectedCategories
+    selectedCategories.push(category)
+    this.setState({selectedCategories: selectedCategories})
+    var selectedJobs = []
+    for(var i = 0; i < selectedCategories.length;i++){
+      for(var j = 0; j < selectedCategories[i].jobs.length; j++) {
+        if(selectedCategories.indexOf(selectedCategories[i].jobs[j]) === -1) {
+        selectedJobs.push(selectedCategories[i].jobs[j])
+        } else {
+          console.log("exists")
+        }
+      }
+    }
+    this.setState({jobs: selectedJobs})
+    
   }
 
   render() {
