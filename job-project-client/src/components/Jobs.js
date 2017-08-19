@@ -3,8 +3,8 @@ import React from 'react';
 
 export default class Jobs extends React.Component {
 
-  filterCategory(category) {
-    this.props.filterCategory(category)
+  checkCategory(category, e) {
+    this.props.filterCategory(category, e)
   }
 
   render() {
@@ -15,7 +15,7 @@ export default class Jobs extends React.Component {
         {this.props.categories.map(category =>
           <tbody>
             <tr>
-              <td><input type="radio" onClick={this.filterCategory.bind(this,category)}/>{category.name}</td>
+              <td><input type="checkbox" value={category} onChange={(e) => this.checkCategory(category, e)}/>{category.name}</td>
             </tr>
             </tbody>
               )}

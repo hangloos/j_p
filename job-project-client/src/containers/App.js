@@ -28,7 +28,8 @@ class App extends Component {
     this.state = {
       jobs: [],
       categories: [],
-      selectedCategories: []
+      selectedCategories: [],
+      filteredJobs: []
     }
   }
 
@@ -42,24 +43,42 @@ class App extends Component {
       .then(categories => this.setState({categories}))
     }
 
-
-  filterCategory(category) {
-    var selectedCategories = this.state.selectedCategories
-    selectedCategories.push(category)
-    this.setState({selectedCategories: selectedCategories})
-    var selectedJobs = []
-    for(var i = 0; i < selectedCategories.length;i++){
-      for(var j = 0; j < selectedCategories[i].jobs.length; j++) {
-        if(selectedCategories.indexOf(selectedCategories[i].jobs[j]) === -1) {
-        selectedJobs.push(selectedCategories[i].jobs[j])
-        } else {
-          console.log("exists")
-        }
-      }
+    updateJobs() {
+      fetch('http://localhost:3000/api/jobs')
+      .then(res => res.json())
+      .then(jobs => this.setState({jobs}))
     }
-    this.setState({jobs: selectedJobs})
-    
-  }
+
+
+  filterCategory(category,e) {
+    debugger
+    var selectedCategories = this.state.selectedCategories
+    if (e.target.checked) {
+      selectedCategories.push(category)
+    } else {
+      selectedCategories.splice(selectedCategories.indexOf(category), 1)
+    }
+      this.setState({selectedCategories: selectedCategories})
+
+          if (selectedCategories.length === 0) {
+            this.updateJobs()
+
+          } else {
+
+          var selectedJobs = []
+          for(var i = 0; i < selectedCategories.length;i++){
+            for(var j = 0; j < selectedCategories[i].jobs.length; j++) {
+              if(selectedCategories.indexOf(selectedCategories[i].jobs[j]) === -1) {
+              selectedJobs.push(selectedCategories[i].jobs[j])
+              } else {
+                console.log("job already exists")
+              }
+            }
+          }
+          this.setState({jobs: selectedJobs})
+        }
+      
+    }
 
   render() {
     console.log(this.state)
