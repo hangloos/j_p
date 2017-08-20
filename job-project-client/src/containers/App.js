@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Jobs from '../components/Jobs'
-import Navbar from '../components/Navbar'
-import Layout from './Layout'
+import Jobs from '../components/Jobs';
+import { getJobs } from '../actions/jobs';
+import Navbar from '../components/Navbar';
+import Layout from './Layout';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 
@@ -39,9 +40,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/jobs')
-      .then(res => res.json())
-      .then(jobs => this.setState({jobs}))
+    // fetch('http://localhost:3000/api/jobs')
+    //   .then(res => res.json())
+    //   .then(jobs => this.setState({jobs}))
 
     fetch('http://localhost:3000/api/categories')
       .then(res => res.json())

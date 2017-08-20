@@ -2,7 +2,7 @@ import React from 'react';
 import './Jobs.css'
 import Jobform from './Jobform'
 import { connect } from 'react-redux';
-
+import { getJobs } from '../actions/jobs';
 
 class Jobs extends React.Component {
 
@@ -12,6 +12,10 @@ class Jobs extends React.Component {
 
   handleCheck(e) {
     this.props.filterType(e)
+  }
+
+  componentDidMount() {
+    this.props.getJobs();
   }
 
 
@@ -61,4 +65,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps)(Jobs) 
+export default connect(mapStateToProps, { getJobs })(Jobs) 
