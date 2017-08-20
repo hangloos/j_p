@@ -1,4 +1,6 @@
 import React from 'react';
+import './Jobs.css'
+import Jobform from './Jobform'
 
 
 export default class Jobs extends React.Component {
@@ -14,7 +16,7 @@ export default class Jobs extends React.Component {
   render() {
   return (
   <div>
-      <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+      <div className="col-xs-7 col-sm-4 col-md-4 col-lg-4 text-left">
       <span className="label label-primary">Categories</span>
         <br />
         {this.props.categories.map(category =>
@@ -24,10 +26,11 @@ export default class Jobs extends React.Component {
             </tr>
           </tbody>
               )}
+        < Jobform />
 
     </div >
 
-    <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 pull-right">
+    <div className="col-xs-5 col-sm-8 col-md-8 col-lg-8 pull-right">
         {this.props.jobs.map(job =>
             <div className="thumbnail">
                 <div className="caption">
