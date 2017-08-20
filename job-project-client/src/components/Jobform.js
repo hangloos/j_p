@@ -1,5 +1,6 @@
 import React from 'react';
 import './Jobs.css'
+import axios from 'axios'
 
 
 export default class Jobform extends React.Component {
@@ -21,7 +22,17 @@ onChange(e) {
 }
 
 handleSubmit(e) {
-debugger
+e.preventDefault();
+
+const data = this.state
+
+axios.post(
+  'http://localhost:3000/api/jobs',
+  {job: data}
+  )
+  .then(response => {console.log(response)})
+  .catch(error => console.log(error))
+  
 }
 
   render() {
@@ -44,7 +55,7 @@ debugger
                     <input type="url" className="form-control" id="url" name="url" onChange={this.onChange.bind(this)}  placeholder="Company Website" required />
                   </div>
                   <div className="form-group">
-                  <select onChange={this.onChange.bind(this)} >
+                  <select name="job_type" onChange={this.onChange.bind(this)} >
                     <option value="Full-Time">Full-Time</option>
                     <option value="Part-Time">Part-Time</option>
                   </select>

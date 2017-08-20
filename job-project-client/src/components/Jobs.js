@@ -13,6 +13,7 @@ export default class Jobs extends React.Component {
     this.props.filterType(e)
   }
 
+
   render() {
   return (
   <div>
@@ -26,7 +27,7 @@ export default class Jobs extends React.Component {
             </tr>
           </tbody>
               )}
-        < Jobform />
+        <Jobform />
 
     </div >
 

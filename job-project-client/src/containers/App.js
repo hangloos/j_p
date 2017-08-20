@@ -8,9 +8,9 @@ import axios from 'axios';
 
 var navbar = {};
 navbar.brand = 
-  {linkTo: "#", text: "Eric Loos Project"};
+  {linkTo: "/", text: "Eric Loos Project"};
 navbar.links = [
-  {linkTo: "#", text: "Home"},
+  {linkTo: "/", text: "Home"},
   // {linkTo: "#", text: "Link 2"},
   // {dropdown: true, text: "Dropdown", links: [
   //   {linkTo: "#", text: "Dropdown Link 1"},
@@ -49,6 +49,7 @@ class App extends Component {
     }
 
     updateJobs() {
+      console.log("update jobs in app")
       fetch('http://localhost:3000/api/jobs')
       .then(res => res.json())
       .then(jobs => this.setState({jobs}))
