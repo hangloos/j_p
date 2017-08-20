@@ -1,9 +1,10 @@
 import React from 'react';
 import './Jobs.css'
 import Jobform from './Jobform'
+import { connect } from 'react-redux';
 
 
-export default class Jobs extends React.Component {
+class Jobs extends React.Component {
 
   checkCategory(category, e) {
     this.props.filterCategory(category, e)
@@ -54,13 +55,10 @@ export default class Jobs extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return ({
+    jobs: state.jobs
+  })
+}
 
-        // <span className="label label-primary">Job Type</span>
-        // <tbody>
-        //   <tr>
-        //     <td><input type="checkbox" value="Full-Time" onChange={(e) => this.handleCheck(e)}/>Full-Time</td>
-        //   </tr>
-        //   <tr>
-        //     <td><input type="checkbox" value="Part-Time" onChange={(e) => this.handleCheck(e)}/>Part-Time</td>
-        //   </tr>
-        // </tbody>
+export default connect(mapStateToProps)(Jobs) 
