@@ -6,9 +6,11 @@ import {
 import thunk from 'redux-thunk';
 
 import jobs from './reducers/jobs';
+import jobFormData from './reducers/jobFormData';
 
 const reducers = combineReducers({
-  jobs: jobs
+  jobs,
+  jobFormData
 });
 
 const middleware = [thunk];
