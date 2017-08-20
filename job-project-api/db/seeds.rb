@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Job.create!([
+Job.create([
     {title: "Front End Developer", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    url: "www.google.com",company: "Google"},
+    url: "www.google.com",company: "Google", job_type: "Full-Time"},
     {title: "Front End Developer", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    url: "www.google.com",company: "Google"},
+    url: "www.google.com",company: "Google", job_type: "Part-Time"},
     {title: "Front End Developer", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    url: "www.google.com",company: "Google"}])
+    url: "www.google.com",company: "Google", job_type: "Full-Time"}])
    
 
     cat1 = Category.create(name: "Technology")
@@ -21,6 +21,6 @@ Job.create!([
     cat3 = Category.create(name: "Legal")
 
 
-    cat1.jobs << Job.all[4]
-    cat2.jobs << Job.all[5..9]
-    cat3.jobs << Job.all[7..10]
+    cat1.jobs << Job.all[0]
+    cat2.jobs << Job.all[1]
+    cat3.jobs << Job.all[2]

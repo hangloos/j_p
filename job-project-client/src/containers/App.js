@@ -29,7 +29,12 @@ class App extends Component {
       jobs: [],
       categories: [],
       selectedCategories: [],
-      filteredJobs: []
+      filteredJobs: [],
+      jobTypeChecked: {
+        
+      },
+      fullTimeJobs: [],
+      partTimeJobs: []
     }
   }
 
@@ -51,7 +56,6 @@ class App extends Component {
 
 
   filterCategory(category,e) {
-    debugger
     var selectedCategories = this.state.selectedCategories
     if (e.target.checked) {
       selectedCategories.push(category)
@@ -80,9 +84,40 @@ class App extends Component {
       
     }
 
-  render() {
-    console.log(this.state)
 
+  // filterType(e) {
+  
+  //   let jobChecked = this.state.jobTypeChecked
+  //   jobChecked[e.target.value] = e.target.checked
+  //   this.setState({
+  //     jobChecked
+  //   })
+
+  //   const fullTimeJobs = []
+  //   const partTimeJobs = []
+    
+  //   for (var i = 0; i < this.state.jobs.length; i++) {
+  //     if (this.state.jobs[i].job_type === "Part-Time") {
+  //       partTimeJobs.push(this.state.jobs[i])
+  //     } else {
+  //       fullTimeJobs.push(this.state.jobs[i])
+  //     }
+  //   }
+
+  //   this.setState({
+  //     partTimeJobs: partTimeJobs,
+  //     fullTimeJobs: fullTimeJobs
+  //   })
+  //   debugger
+  //   if(this.state.jobTypeChecked["Full-Time"] && !this.state.jobTypeChecked["Part-Time"]) {
+  //     this.setState({jobs: this.state.fullTimeJobs})
+  //   } else if (!this.state.jobTypeChecked["Full-Time"] && this.state.jobTypeChecked["Part-Time"]) {
+  //     this.setState({jobs: this.state.partTimeJobs})
+  //   } 
+   
+  // }
+
+  render() {
     return (
       <div className="App">
       <Navbar {...navbar} />

@@ -7,18 +7,24 @@ export default class Jobs extends React.Component {
     this.props.filterCategory(category, e)
   }
 
+  handleCheck(e) {
+    this.props.filterType(e)
+  }
+
   render() {
   return (
   <div>
       <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
-        <a className="btn icon-btn btn-primary pull-left" href="#"><span className="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>Add Job</a>
+      <span className="label label-primary">Categories</span>
+        <br />
         {this.props.categories.map(category =>
           <tbody>
             <tr>
               <td><input type="checkbox" value={category} onChange={(e) => this.checkCategory(category, e)}/>{category.name}</td>
             </tr>
-            </tbody>
+          </tbody>
               )}
+
     </div >
 
     <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8 pull-right">
@@ -43,3 +49,14 @@ export default class Jobs extends React.Component {
         );
   }
 }
+
+
+        // <span className="label label-primary">Job Type</span>
+        // <tbody>
+        //   <tr>
+        //     <td><input type="checkbox" value="Full-Time" onChange={(e) => this.handleCheck(e)}/>Full-Time</td>
+        //   </tr>
+        //   <tr>
+        //     <td><input type="checkbox" value="Part-Time" onChange={(e) => this.handleCheck(e)}/>Part-Time</td>
+        //   </tr>
+        // </tbody>
