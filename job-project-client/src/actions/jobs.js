@@ -29,7 +29,6 @@ const destroyJob = job => {
 
 //async actions
 export const getJobs = () => {
-  debugger
  return dispatch => {
     return fetch('http://localhost:3000/api/jobs')
       .then(res => res.json())
@@ -65,8 +64,6 @@ export const deleteJob = job => {
       },
       body: JSON.stringify({ job: job })
     })
-    .then(response => response.json())
-    
     .catch(error => console.log(error))
   }
 }

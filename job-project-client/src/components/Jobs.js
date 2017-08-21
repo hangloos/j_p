@@ -30,15 +30,7 @@ class Jobs extends React.Component {
   return (
   <div>
       <div className="col-xs-7 col-sm-4 col-md-4 col-lg-4 text-left">
-      <span className="label label-primary">Categories</span>
-        <br />
-        {this.props.categories.map(category =>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" value={category} onChange={(e) => this.checkCategory(category, e)}/>{category.name}</td>
-            </tr>
-          </tbody>
-              )}
+      
         <Jobform />
 
     </div >

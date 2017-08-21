@@ -1,6 +1,20 @@
 # README
 
+Job Project:
 
+- Originally built using state in app.js. 
+- Created a category list and function to show each category. 
+- Implemented redux for showing all jobs, creating a job and deleting a job
+
+
+
+
+
+
+
+
+
+Initial Notes:
 
 # GET /api/jobs
 # GET /api/jobs/:id
@@ -23,13 +37,3 @@
 #accounting & finance, data/analytics, design, developer/engineer, hr/recruitment, legal, marketing, opeartions, product, project management, sales, writing & content
 #name:string
 #seed categories
-
-
-
-
-
-
-
-Deploy To Dos:
-
-cors - add heroku url in initializers
