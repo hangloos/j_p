@@ -4,7 +4,10 @@ export default (state = [], action) => {
       return action.jobs
 
     case 'CREATE_JOB_SUCCESS':
-      return state.concat(action.job)  
+      return state.concat(action.job)
+
+    case 'DELETE_JOB_SUCCESS':
+      return action.jobs  
 
     default:
       return state;

@@ -3,6 +3,7 @@ import './Jobs.css'
 import Jobform from './Jobform'
 import { connect } from 'react-redux';
 import { getJobs } from '../actions/jobs';
+import { deleteJob } from '../actions/jobs';
 
 class Jobs extends React.Component {
 
@@ -16,6 +17,12 @@ class Jobs extends React.Component {
 
   componentDidMount() {
     this.props.getJobs();
+  }
+
+  deleteJob(job, e) {
+    this.props.deleteJob(job);
+    this.props.getJobs();
+
   }
 
 
@@ -47,9 +54,11 @@ class Jobs extends React.Component {
                   </div>
                   <div className='col-lg-4'>
                       <p>{job.company}</p>
-                      <p className="text-muted">{job.description.substring(0, 70)}</p>
+                      <p>{job.url}</p>
+                      <p>{job.job_type}</p>
+                      <p className="text-muted">{job.description}</p>
                   </div>
-                  <button type="button" className="btn btn-success btn-xs btn-update btn-add-card">View Job</button>
+                  <a type="button" className="btn btn-danger btn-xs btn-update btn-add-card" onClick={this.deleteJob.bind(this,job)}>Delete Job</a>
               </div>
             </div>
             )}
@@ -65,4 +74,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, { getJobs })(Jobs) 
+export default connect(mapStateToProps, { getJobs, deleteJob})(Jobs) 

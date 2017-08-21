@@ -1,0 +1,89 @@
+<link href="static/src/calculators_dashboard/calculator_style.css" rel="stylesheet">
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-sm-10 col-xs-10">
+      <div class="panel panel-login" ng-hide="!$ctrl.lineOfCreditPayoffShow">
+        <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-4">
+                <a ng-click="$ctrl.changingCalculators(1)" id="tab1">Invoice Factoring</a>
+              </div>
+              <div class="col-xs-4">
+                <a ng-click="$ctrl.changingCalculators(2)" id="tab2">Small Business Loan</a>
+              </div>
+              <div class="col-xs-4">
+                <a ng-click="$ctrl.changingCalculators(3)" id="tab3">Line Of Credit Payoff</a>
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="panel-body" ng-hide="!$ctrl.lineOfCreditPayoffShow">
+          <h2>Line Of Credit</h2>
+           <div class="row">
+             <div class="col-md-6 col-sm-6 col-xs-6">
+               <form id="login-form" name="calculatorCreditForm" role="form" style="display: block;">
+                 <label>Current Balance</label>
+                 <div class="input-box">
+                   <span class="unit">$</span>
+                   <input type="number" name="balance" ng-init="$ctrl.credit.balance=2000" ng-model="$ctrl.credit.balance" autofocus="autofocus" required min="0">
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.balance.$error.min">Must Be Positive</span>
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.balance.$error.required">Required!</span>
+                 </div>
+                 <br>
+                 <label>Annual Interest Rate</label>
+                 <div class="input-box">
+                   <span class="unit">%</span>
+                   <input type="number" name="rate" ng-init="$ctrl.credit.rate=7.5" ng-model="$ctrl.credit.rate" autofocus="autofocus" required min="0">
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.rate.$error.min">Must Be Positive</span>
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.rate.$error.required">Required!</span>
+                 </div>
+                 <br>
+                 <!-- <label>Rate Change (per year)</label>
+                 <div class="input-box">
+                  <span class="unit">%</span>
+                   <input type="text" ng-init="$ctrl.credit.change='0'" ng-model="$ctrl.credit.change" autofocus="autofocus">
+                 </div>
+                 <br> -->
+                 <label>Payoff Goal (in months)</label>
+                 <div class="input-box">
+                   <input type="number" name="months" ng-init="$ctrl.credit.months=24" ng-model="$ctrl.credit.months" autofocus="autofocus" required min="0">
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.months.$error.min">Must Be Positive</span>
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.months.$error.required">Required!</span>
+                 </div>
+                 <br>
+                 <!-- <label>Current Monthly Payment</label>
+                 <div class="input-box">
+                  <span class="unit">$</span>
+                   <input type="text" ng-init="$ctrl.credit.monthly='125'" ng-model="$ctrl.credit.monthly" autofocus="autofocus">
+                 </div>
+                 <br> -->
+                 <label>Additional Monthly Charges</label>
+                 <div class="input-box">
+                  <span class="unit">$</span>
+                   <input type="number" name="additional" ng-init="$ctrl.credit.additional=100" ng-model="$ctrl.credit.additional" autofocus="autofocus" min="0">
+                   <span style="color:red;" class="error" ng-show="calculatorCreditForm.additional.$error.min">Must Be Positive</span>
+                 </div>
+                 <br>
+                 <!-- <label>Annual Fee</label>
+                 <div class="input-box">
+                  <span class="unit">$</span>
+                   <input type="text" ng-init="$ctrl.credit.fee='35'" ng-model="$ctrl.credit.fee" autofocus="autofocus">
+                 </div> -->
+                 <!-- a ng-click="$ctrl.resetSmallBusinessLoanCal()">Reset</a><br> -->
+                  </div>
+
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                  <img src="static/src/assets/img/logo.svg" width="50" height="50"><p>SMBRate</p>
+                      <h3><b>${{$ctrl.credit.monthlyCalculated}}</b> per month will payoff credit line in <b>{{$ctrl.credit.months}}</b> months</h3>
+                       <button tabindex="4" class="form-control btn btn-login" ng-click="calculatorCreditForm.$valid && $ctrl.lineCreditPayoffCalculation()" value="Calculate">Calculate</button>
+                  </div>
+                  </div>
+                  </div>
+               </form>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

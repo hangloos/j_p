@@ -9,44 +9,22 @@ import { createJob } from '../actions/jobs';
 
 class Jobform extends React.Component {
 
-  // constructor(props) {
-  //   super(props)
+  onChange = e => {
+    const { value , name } = e.target;
+    const currentJobFormData = Object.assign({}, this.props.jobFormData, {
+      [name]: value
+    })
+   
+    this.props.updateJobFormData(currentJobFormData)
+  }
 
-  //   this.state = {
-      
-  //   }
-  // }
+  handleSubmit(e) {
+  e.preventDefault();
 
+  this.props.createJob(this.props.jobFormData)
 
-onChange = e => {
-  const { value , name } = e.target;
-  const currentJobFormData = Object.assign({}, this.props.jobFormData, {
-    [name]: value
-  })
-  // this.setState({
-  //   [e.target.name]: e.target.value
-  // })
-
-  this.props.updateJobFormData(currentJobFormData)
-}
-
-handleSubmit(e) {
-e.preventDefault();
-
-this.props.createJob(this.props.jobFormData)
-
-
-
-// const data = this.state
-
-// axios.post(
-//   'http://localhost:3000/api/jobs',
-//   {job: data}
-//   )
-//   .then(response => {console.log(response)})
-//   .catch(error => console.log(error))
-  
-}
+    
+  }
 
   render() {
 
